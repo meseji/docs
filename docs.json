@@ -51,18 +51,24 @@
         "tab": "API reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Overview",
             "pages": [
               "api-reference/introduction"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Templates",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/endpoint/get-templates",
+              "api-reference/endpoint/get-template-variables"
+            ]
+          },
+          {
+            "group": "Messages",
+            "pages": [
+              "api-reference/endpoint/send-template",
+              "api-reference/endpoint/send-text",
+              "api-reference/endpoint/send-image"
             ]
           }
         ]

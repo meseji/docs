@@ -1,33 +1,125 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'Integrate WhatsApp messaging capabilities into your applications with the Meseji API'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Welcome to Meseji API
 
-## Welcome
+The Meseji API for Service Providers allows developers to integrate WhatsApp messaging capabilities into their applications. With this API, you can:
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+<CardGroup cols={2}>
+  <Card title="Send Messages" icon="paper-plane">
+    Send text, image, and template messages to your customers via WhatsApp
+  </Card>
+  <Card title="Manage Templates" icon="file-lines">
+    Retrieve and manage your WhatsApp message templates
+  </Card>
+  <Card title="Rich Media" icon="image">
+    Share images, documents, and other media with your customers
+  </Card>
+  <Card title="Automated Messaging" icon="robot">
+    Build automated workflows and chatbots using our API
+  </Card>
+</CardGroup>
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+## Base URL
+
+All API requests should be made to:
+
+```
+https://api.meseji.app
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API endpoints require authentication using Bearer tokens. Include your API token in the `Authorization` header of every request:
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+curl -X GET https://api.meseji.app/api/v1/whatsapp/templates \
+  -H "Authorization: Bearer YOUR_API_TOKEN"
 ```
+
+<Warning>
+  Keep your API token secure. Never expose it in client-side code or public repositories.
+</Warning>
+
+## Getting Your API Token
+
+<Steps>
+  <Step title="Sign Up">
+    Create an account at [Meseji Dashboard](https://dashboard.meseji.app)
+  </Step>
+  <Step title="Complete Onboarding">
+    Connect your WhatsApp Business Account through the onboarding process
+  </Step>
+  <Step title="Generate Token">
+    Navigate to **Settings → API Keys** and generate your API token
+  </Step>
+</Steps>
+
+## API Endpoints
+
+### Templates
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/v1/whatsapp/templates` | [Get all templates](/api-reference/endpoint/get-templates) |
+| `GET` | `/api/v1/whatsapp/templates/{name}/variables` | [Get template variables](/api-reference/endpoint/get-template-variables) |
+
+### Messages
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/v1/whatsapp/messages/template` | [Send template message](/api-reference/endpoint/send-template) |
+| `POST` | `/api/v1/whatsapp/messages/text` | [Send text message](/api-reference/endpoint/send-text) |
+| `POST` | `/api/v1/whatsapp/messages/image` | [Send image message](/api-reference/endpoint/send-image) |
+
+## Response Format
+
+All API responses follow a consistent format:
+
+<CodeGroup>
+
+```json Success Response
+{
+  "status": true,
+  "message": "Operation completed successfully",
+  "data": { ... }
+}
+```
+
+```json Error Response
+{
+  "status": false,
+  "message": "Error description"
+}
+```
+
+</CodeGroup>
+
+## HTTP Status Codes
+
+| Code | Description |
+|------|-------------|
+| `200` | Success - Request completed successfully |
+| `400` | Bad Request - Invalid parameters or missing configuration |
+| `401` | Unauthorized - Invalid or missing API token |
+| `404` | Not Found - Resource not found or onboarding incomplete |
+| `500` | Server Error - Something went wrong on our end |
+
+## Rate Limits
+
+<Note>
+  The API has rate limits to ensure fair usage. If you exceed the limit, you'll receive a `429 Too Many Requests` response. Contact support for higher limits.
+</Note>
+
+## Need Help?
+
+<CardGroup cols={2}>
+  <Card title="Support" icon="headset" href="mailto:support@meseji.app">
+    Contact our support team
+  </Card>
+  <Card title="Community" icon="discord" href="https://discord.gg/meseji">
+    Join our developer community
+  </Card>
+</CardGroup>

@@ -1,0 +1,69 @@
+---
+title: 'Get All Templates'
+openapi: 'GET /api/v1/whatsapp/templates'
+description: 'Retrieve all WhatsApp templates linked to your account'
+---
+
+<Note>
+  This endpoint requires a valid Bearer token. Make sure you have completed the WhatsApp Business onboarding process.
+</Note>
+
+## Overview
+
+Use this endpoint to fetch all WhatsApp message templates associated with your WhatsApp Business Account. Templates are pre-approved message formats that you can use to initiate conversations with customers.
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="List Available Templates" icon="list">
+    View all templates you've created and their approval status
+  </Card>
+  <Card title="Check Template Status" icon="circle-check">
+    Verify if templates are APPROVED, PENDING, or REJECTED
+  </Card>
+  <Card title="Get Template IDs" icon="fingerprint">
+    Retrieve template names/IDs for sending messages
+  </Card>
+  <Card title="Template Categories" icon="tags">
+    See template categories (MARKETING, UTILITY, etc.)
+  </Card>
+</CardGroup>
+
+## Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Unique identifier for the template |
+| `name` | string | Template name used when sending messages |
+| `language` | string | Language code (e.g., `en_US`, `es_ES`) |
+| `status` | string | Approval status: `APPROVED`, `PENDING`, `REJECTED` |
+| `category` | string | Template category: `MARKETING`, `UTILITY`, `AUTHENTICATION` |
+
+## Example Response
+
+```json
+{
+  "status": true,
+  "message": "Templates fetched successfully",
+  "data": [
+    {
+      "id": "123456789012345",
+      "name": "welcome_message",
+      "language": "en_US",
+      "status": "APPROVED",
+      "category": "MARKETING"
+    },
+    {
+      "id": "987654321098765",
+      "name": "order_confirmation",
+      "language": "en_US",
+      "status": "APPROVED",
+      "category": "UTILITY"
+    }
+  ]
+}
+```
+
+<Tip>
+  Only templates with `status: "APPROVED"` can be used to send messages. Pending or rejected templates will fail when used.
+</Tip>

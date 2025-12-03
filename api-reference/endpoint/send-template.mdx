@@ -1,0 +1,199 @@
+---
+title: 'Send Template Message'
+openapi: 'POST /api/v1/whatsapp/messages/template'
+description: 'Send a WhatsApp template message to a recipient'
+---
+
+<Note>
+  Template messages are required to initiate conversations with customers outside the 24-hour messaging window.
+</Note>
+
+## Overview
+
+Send pre-approved WhatsApp template messages to your customers. Template messages are the only way to start a conversation with a user who hasn't messaged you in the last 24 hours.
+
+## When to Use Templates
+
+<CardGroup cols={2}>
+  <Card title="Marketing Messages" icon="bullhorn">
+    Promotions, offers, and product announcements
+  </Card>
+  <Card title="Transactional Updates" icon="receipt">
+    Order confirmations, shipping updates, receipts
+  </Card>
+  <Card title="Authentication" icon="shield-check">
+    OTPs, verification codes, login alerts
+  </Card>
+  <Card title="Customer Service" icon="headset">
+    Appointment reminders, support follow-ups
+  </Card>
+</CardGroup>
+
+## Request Body
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `to` | string | Yes | Recipient's phone number with country code (e.g., `919876543210`) |
+| `from` | string | Yes | Your WhatsApp Business phone number |
+| `language` | string | Yes | Template language code (e.g., `en_US`) |
+| `template_id` | string | Yes | Name of the approved template |
+| `variables` | array | No | Array of variable objects (if template has placeholders) |
+
+### Variable Object
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `keyName` | string | Variable key from template (e.g., `body_1`, `header_image`) |
+| `value` | string | Value to substitute in the template |
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.meseji.app/api/v1/whatsapp/messages/template \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "to": "919876543210",
+    "from": "919123456789",
+    "language": "en_US",
+    "template_id": "order_shipped",
+    "variables": [
+      {
+        "keyName": "header_image",
+        "value": "https://example.com/shipping.jpg"
+      },
+      {
+        "keyName": "body_1",
+        "value": "John"
+      },
+      {
+        "keyName": "body_2",
+        "value": "ORD-12345"
+      },
+      {
+        "keyName": "button_1",
+        "value": "https://example.com/track/ORD-12345"
+      }
+    ]
+  }'
+```
+
+```javascript JavaScript
+const response = await fetch('https://api.meseji.app/api/v1/whatsapp/messages/template', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    to: '919876543210',
+    from: '919123456789',
+    language: 'en_US',
+    template_id: 'order_shipped',
+    variables: [
+      { keyName: 'header_image', value: 'https://example.com/shipping.jpg' },
+      { keyName: 'body_1', value: 'John' },
+      { keyName: 'body_2', value: 'ORD-12345' },
+      { keyName: 'button_1', value: 'https://example.com/track/ORD-12345' }
+    ]
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+```python Python
+import requests
+
+url = "https://api.meseji.app/api/v1/whatsapp/messages/template"
+headers = {
+    "Authorization": "Bearer YOUR_API_TOKEN",
+    "Content-Type": "application/json"
+}
+payload = {
+    "to": "919876543210",
+    "from": "919123456789",
+    "language": "en_US",
+    "template_id": "order_shipped",
+    "variables": [
+        {"keyName": "header_image", "value": "https://example.com/shipping.jpg"},
+        {"keyName": "body_1", "value": "John"},
+        {"keyName": "body_2", "value": "ORD-12345"},
+        {"keyName": "button_1", "value": "https://example.com/track/ORD-12345"}
+    ]
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.json())
+```
+
+```php PHP
+<?php
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+    CURLOPT_URL => "https://api.meseji.app/api/v1/whatsapp/messages/template",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_HTTPHEADER => [
+        "Authorization: Bearer YOUR_API_TOKEN",
+        "Content-Type: application/json"
+    ],
+    CURLOPT_POSTFIELDS => json_encode([
+        "to" => "919876543210",
+        "from" => "919123456789",
+        "language" => "en_US",
+        "template_id" => "order_shipped",
+        "variables" => [
+            ["keyName" => "header_image", "value" => "https://example.com/shipping.jpg"],
+            ["keyName" => "body_1", "value" => "John"],
+            ["keyName" => "body_2", "value" => "ORD-12345"],
+            ["keyName" => "button_1", "value" => "https://example.com/track/ORD-12345"]
+        ]
+    ])
+]);
+
+$response = curl_exec($curl);
+curl_close($curl);
+
+echo $response;
+?>
+```
+
+</CodeGroup>
+
+## Success Response
+
+```json
+{
+  "status": true,
+  "message": "Message sent successfully"
+}
+```
+
+<Tip>
+  **Pro tip:** Use the [Get Template Variables](/api-reference/endpoint/get-template-variables) endpoint first to see what variables your template requires.
+</Tip>
+
+## Common Errors
+
+<AccordionGroup>
+  <Accordion title="Template not found">
+    Ensure the `template_id` matches an approved template name exactly.
+  </Accordion>
+  
+  <Accordion title="Invalid phone number">
+    Phone numbers must include country code without `+` or spaces (e.g., `919876543210`).
+  </Accordion>
+  
+  <Accordion title="Missing variables">
+    All required template variables must be provided with valid values.
+  </Accordion>
+  
+  <Accordion title="Template not approved">
+    Only templates with `APPROVED` status can be used to send messages.
+  </Accordion>
+</AccordionGroup>
