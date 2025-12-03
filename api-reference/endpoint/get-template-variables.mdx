@@ -2,11 +2,11 @@
 title: "Get Template Variables"
 openapi: "GET /api/v1/whatsapp/templates/{name}/variables"
 description: "Retrieve the variables required for a specific WhatsApp template"
+mode: "wide"
 ---
 
 <Note>
-  Before sending a template message, use this endpoint to understand what
-  variables are required.
+  Before sending a template message, use this endpoint to understand what variables are required.
 </Note>
 
 ## Overview
@@ -24,7 +24,7 @@ This endpoint returns the dynamic variables (placeholders) that a specific templ
 <AccordionGroup>
   <Accordion title="TEXT" icon="font">
     Plain text variables used in the message body or header.
-    
+
     ```json
     {
       "label": "Customer Name",
@@ -33,10 +33,9 @@ This endpoint returns the dynamic variables (placeholders) that a specific templ
     }
     ```
   </Accordion>
-  
   <Accordion title="IMAGE_URL" icon="image">
     URL pointing to an image file for header media.
-    
+
     ```json
     {
       "label": "Header Image",
@@ -44,14 +43,13 @@ This endpoint returns the dynamic variables (placeholders) that a specific templ
       "type": "IMAGE_URL"
     }
     ```
-    
-    **Supported formats:** JPG, PNG  
+
+    **Supported formats:** JPG, PNG\
     **Max size:** 5MB
   </Accordion>
-  
   <Accordion title="DOCUMENT_URL" icon="file">
     URL pointing to a document file for header media.
-    
+
     ```json
     {
       "label": "Invoice Document",
@@ -59,14 +57,13 @@ This endpoint returns the dynamic variables (placeholders) that a specific templ
       "type": "DOCUMENT_URL"
     }
     ```
-    
-    **Supported formats:** PDF  
+
+    **Supported formats:** PDF\
     **Max size:** 100MB
   </Accordion>
-  
   <Accordion title="VIDEO_URL" icon="video">
     URL pointing to a video file for header media.
-    
+
     ```json
     {
       "label": "Promo Video",
@@ -74,8 +71,8 @@ This endpoint returns the dynamic variables (placeholders) that a specific templ
       "type": "VIDEO_URL"
     }
     ```
-    
-    **Supported formats:** MP4  
+
+    **Supported formats:** MP4\
     **Max size:** 16MB
   </Accordion>
 </AccordionGroup>
@@ -143,6 +140,5 @@ Once you have the variables, use them when sending a template message:
 ```
 
 <Warning>
-  All required variables must be provided when sending a template message.
-  Missing variables will cause the message to fail.
+  All required variables must be provided when sending a template message. Missing variables will cause the message to fail.
 </Warning>
