@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "OpenAPI Plant Store",
+    "title": "Meseji",
     "description": "The Meseji API For Service Providers allows developers to integrate WhatsApp messaging capabilities into their applications. With this API, you can send and receive WhatsApp messages, manage contacts, and utilize various messaging features offered by WhatsApp Business. This documentation provides detailed information on the available endpoints, request/response formats, authentication methods, and usage guidelines to help developers effectively use the Meseji API for Service Providers in their applications.",
     "license": {
       "name": "MIT"
