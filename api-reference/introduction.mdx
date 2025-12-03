@@ -1,6 +1,6 @@
 ---
-title: 'Introduction'
-description: 'Integrate WhatsApp messaging capabilities into your applications with the Meseji API'
+title: "Introduction"
+description: "Integrate WhatsApp messaging capabilities into your applications with the Meseji API"
 ---
 
 ## Welcome to Meseji API
@@ -40,7 +40,8 @@ curl -X GET https://api.meseji.app/api/v1/whatsapp/templates \
 ```
 
 <Warning>
-  Keep your API token secure. Never expose it in client-side code or public repositories.
+  Keep your API token secure. Never expose it in client-side code or public
+  repositories.
 </Warning>
 
 ## Getting Your API Token
@@ -61,18 +62,18 @@ curl -X GET https://api.meseji.app/api/v1/whatsapp/templates \
 
 ### Templates
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/v1/whatsapp/templates` | [Get all templates](/api-reference/endpoint/get-templates) |
-| `GET` | `/api/v1/whatsapp/templates/{name}/variables` | [Get template variables](/api-reference/endpoint/get-template-variables) |
+| Method | Endpoint                                      | Description                                                              |
+| ------ | --------------------------------------------- | ------------------------------------------------------------------------ |
+| `GET`  | `/api/v1/whatsapp/templates`                  | [Get all templates](/api-reference/endpoint/get-templates)               |
+| `GET`  | `/api/v1/whatsapp/templates/{name}/variables` | [Get template variables](/api-reference/endpoint/get-template-variables) |
 
 ### Messages
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
+| Method | Endpoint                             | Description                                                    |
+| ------ | ------------------------------------ | -------------------------------------------------------------- |
 | `POST` | `/api/v1/whatsapp/messages/template` | [Send template message](/api-reference/endpoint/send-template) |
-| `POST` | `/api/v1/whatsapp/messages/text` | [Send text message](/api-reference/endpoint/send-text) |
-| `POST` | `/api/v1/whatsapp/messages/image` | [Send image message](/api-reference/endpoint/send-image) |
+| `POST` | `/api/v1/whatsapp/messages/text`     | [Send text message](/api-reference/endpoint/send-text)         |
+| `POST` | `/api/v1/whatsapp/messages/image`    | [Send image message](/api-reference/endpoint/send-image)       |
 
 ## Response Format
 
@@ -99,18 +100,19 @@ All API responses follow a consistent format:
 
 ## HTTP Status Codes
 
-| Code | Description |
-|------|-------------|
-| `200` | Success - Request completed successfully |
+| Code  | Description                                               |
+| ----- | --------------------------------------------------------- |
+| `200` | Success - Request completed successfully                  |
 | `400` | Bad Request - Invalid parameters or missing configuration |
-| `401` | Unauthorized - Invalid or missing API token |
-| `404` | Not Found - Resource not found or onboarding incomplete |
-| `500` | Server Error - Something went wrong on our end |
+| `401` | Unauthorized - Invalid or missing API token               |
+| `404` | Not Found - Resource not found or onboarding incomplete   |
+| `500` | Server Error - Something went wrong on our end            |
 
 ## Rate Limits
 
 <Note>
-  The API has rate limits to ensure fair usage. If you exceed the limit, you'll receive a `429 Too Many Requests` response. Contact support for higher limits.
+  The API has rate limits to ensure fair usage. If you exceed the limit, you'll
+  receive a `429 Too Many Requests` response. Contact support for higher limits.
 </Note>
 
 ## Need Help?

@@ -9,9 +9,7 @@
     "version": "1.0.0"
   },
   "tags": [{ "name": "developer-apis", "description": "" }],
-  "servers": [
-    { "url": "https://api.meseji.app", "description": "Production" }
-  ],
+  "servers": [{ "url": "https://api.meseji.app", "description": "Production" }],
   "security": [
     {
       "bearerAuth": []
@@ -526,9 +524,7 @@
   "components": {
     "schemas": {
       "Plant": {
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "type": "object",
         "properties": {
           "name": {
@@ -547,9 +543,7 @@
             "$ref": "#/components/schemas/Plant"
           },
           {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "type": "object",
             "properties": {
               "id": {
@@ -562,10 +556,7 @@
         ]
       },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+        "required": ["error", "message"],
         "type": "object",
         "properties": {
           "error": {

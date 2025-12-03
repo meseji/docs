@@ -1,11 +1,12 @@
 ---
-title: 'Get Template Variables'
-openapi: 'GET /api/v1/whatsapp/templates/{name}/variables'
-description: 'Retrieve the variables required for a specific WhatsApp template'
+title: "Get Template Variables"
+openapi: "GET /api/v1/whatsapp/templates/{name}/variables"
+description: "Retrieve the variables required for a specific WhatsApp template"
 ---
 
 <Note>
-  Before sending a template message, use this endpoint to understand what variables are required.
+  Before sending a template message, use this endpoint to understand what
+  variables are required.
 </Note>
 
 ## Overview
@@ -14,9 +15,9 @@ This endpoint returns the dynamic variables (placeholders) that a specific templ
 
 ## Path Parameters
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `name` | string | Yes | The name of the WhatsApp template (e.g., `welcome_message`) |
+| Parameter | Type   | Required | Description                                                 |
+| --------- | ------ | -------- | ----------------------------------------------------------- |
+| `name`    | string | Yes      | The name of the WhatsApp template (e.g., `welcome_message`) |
 
 ## Variable Types
 
@@ -142,5 +143,6 @@ Once you have the variables, use them when sending a template message:
 ```
 
 <Warning>
-  All required variables must be provided when sending a template message. Missing variables will cause the message to fail.
+  All required variables must be provided when sending a template message.
+  Missing variables will cause the message to fail.
 </Warning>

@@ -1,11 +1,12 @@
 ---
-title: 'Get All Templates'
-openapi: 'GET /api/v1/whatsapp/templates'
-description: 'Retrieve all WhatsApp templates linked to your account'
+title: "Get All Templates"
+openapi: "GET /api/v1/whatsapp/templates"
+description: "Retrieve all WhatsApp templates linked to your account"
 ---
 
 <Note>
-  This endpoint requires a valid Bearer token. Make sure you have completed the WhatsApp Business onboarding process.
+  This endpoint requires a valid Bearer token. Make sure you have completed the
+  WhatsApp Business onboarding process.
 </Note>
 
 ## Overview
@@ -31,12 +32,12 @@ Use this endpoint to fetch all WhatsApp message templates associated with your W
 
 ## Response Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | Unique identifier for the template |
-| `name` | string | Template name used when sending messages |
-| `language` | string | Language code (e.g., `en_US`, `es_ES`) |
-| `status` | string | Approval status: `APPROVED`, `PENDING`, `REJECTED` |
+| Field      | Type   | Description                                                 |
+| ---------- | ------ | ----------------------------------------------------------- |
+| `id`       | string | Unique identifier for the template                          |
+| `name`     | string | Template name used when sending messages                    |
+| `language` | string | Language code (e.g., `en_US`, `es_ES`)                      |
+| `status`   | string | Approval status: `APPROVED`, `PENDING`, `REJECTED`          |
 | `category` | string | Template category: `MARKETING`, `UTILITY`, `AUTHENTICATION` |
 
 ## Example Response
@@ -65,5 +66,6 @@ Use this endpoint to fetch all WhatsApp message templates associated with your W
 ```
 
 <Tip>
-  Only templates with `status: "APPROVED"` can be used to send messages. Pending or rejected templates will fail when used.
+  Only templates with `status: "APPROVED"` can be used to send messages. Pending
+  or rejected templates will fail when used.
 </Tip>
