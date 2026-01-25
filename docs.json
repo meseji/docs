@@ -36,6 +36,16 @@
         "tab": "Guides",
         "groups": [
           {
+            "group": "Test",
+            "pages": [
+              "guides/test/test",
+              {
+                "group": "Untitled Group",
+                "pages": []
+              }
+            ]
+          },
+          {
             "group": "Getting started",
             "pages": [
               "index",
