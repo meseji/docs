@@ -48,6 +48,13 @@
           {
             "group": "Getting started",
             "pages": [
+              {
+                "group": "Solutions",
+                "pages": [
+                  "guides/getting-started/solutions/healthcare",
+                  "guides/getting-started/e-commerce"
+                ]
+              },
               "index",
               "quickstart",
               "development",
@@ -121,7 +128,6 @@
       },
       {
         "tab": "Changelog",
-        "icon": "clock-rotate-left",
         "pages": [
           "changelog/page"
         ]
