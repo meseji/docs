@@ -28,74 +28,72 @@
         }
       ]
     },
-    "products": [
+    "tabs": [
       {
-        "product": "Drop",
-        "tabs": [
+        "tab": "Guides",
+        "groups": [
           {
-            "tab": "Guides",
-            "groups": [
-              {
-                "group": "Getting started",
-                "pages": [
-                  "index",
-                  "quickstart",
-                  "development"
-                ]
-              },
-              {
-                "group": "Customization",
-                "pages": [
-                  "essentials/settings",
-                  "essentials/navigation"
-                ]
-              },
-              {
-                "group": "Writing content",
-                "pages": [
-                  "essentials/markdown",
-                  "essentials/code",
-                  "essentials/images",
-                  "essentials/reusable-snippets"
-                ]
-              },
-              {
-                "group": "AI tools",
-                "pages": [
-                  "ai-tools/cursor",
-                  "ai-tools/claude-code",
-                  "ai-tools/windsurf"
-                ]
-              }
+            "group": "Getting started",
+            "pages": [
+              "index",
+              "quickstart",
+              "development"
             ]
           },
           {
-            "tab": "API reference",
-            "groups": [
-              {
-                "group": "Overview",
-                "pages": [
-                  "api-reference/introduction"
-                ]
-              },
-              {
-                "group": "Templates",
-                "pages": [
-                  "api-reference/endpoint/get-templates",
-                  "api-reference/endpoint/get-template-variables"
-                ]
-              },
-              {
-                "group": "Messages",
-                "pages": [
-                  "api-reference/endpoint/send-template",
-                  "api-reference/endpoint/send-text",
-                  "api-reference/endpoint/send-image"
-                ]
-              }
+            "group": "Customization",
+            "pages": [
+              "essentials/settings",
+              "essentials/navigation"
+            ]
+          },
+          {
+            "group": "Writing content",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets"
+            ]
+          },
+          {
+            "group": "AI tools",
+            "pages": [
+              "ai-tools/cursor",
+              "ai-tools/claude-code",
+              "ai-tools/windsurf"
             ]
           }
         ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Templates",
+            "pages": [
+              "api-reference/endpoint/get-templates",
+              "api-reference/endpoint/get-template-variables"
+            ]
+          },
+          {
+            "group": "Messages",
+            "pages": [
+              "api-reference/endpoint/send-template",
+              "api-reference/endpoint/send-text",
+              "api-reference/endpoint/send-image"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog"
       }
     ]
   },
