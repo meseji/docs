@@ -9,81 +9,95 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": ["index", "quickstart", "development"]
-          },
-          {
-            "group": "Customization",
-            "pages": ["essentials/settings", "essentials/navigation"]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": ["api-reference/introduction"]
-          },
-          {
-            "group": "Templates",
-            "pages": [
-              "api-reference/endpoint/get-templates",
-              "api-reference/endpoint/get-template-variables"
-            ]
-          },
-          {
-            "group": "Messages",
-            "pages": [
-              "api-reference/endpoint/send-template",
-              "api-reference/endpoint/send-text",
-              "api-reference/endpoint/send-image"
-            ]
-          }
-        ]
-      }
-    ],
     "global": {
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "icon": "book-open-cover",
+          "href": "https://docs.meseji.app"
         },
         {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "icon": "slack",
+          "href": "https://mintlify.com/community"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "icon": "newspaper",
+          "href": "https://mintlify.com/blog"
         }
       ]
-    }
+    },
+    "products": [
+      {
+        "product": "Drop",
+        "tabs": [
+          {
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Getting started",
+                "pages": [
+                  "index",
+                  "quickstart",
+                  "development"
+                ]
+              },
+              {
+                "group": "Customization",
+                "pages": [
+                  "essentials/settings",
+                  "essentials/navigation"
+                ]
+              },
+              {
+                "group": "Writing content",
+                "pages": [
+                  "essentials/markdown",
+                  "essentials/code",
+                  "essentials/images",
+                  "essentials/reusable-snippets"
+                ]
+              },
+              {
+                "group": "AI tools",
+                "pages": [
+                  "ai-tools/cursor",
+                  "ai-tools/claude-code",
+                  "ai-tools/windsurf"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API reference",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "api-reference/introduction"
+                ]
+              },
+              {
+                "group": "Templates",
+                "pages": [
+                  "api-reference/endpoint/get-templates",
+                  "api-reference/endpoint/get-template-variables"
+                ]
+              },
+              {
+                "group": "Messages",
+                "pages": [
+                  "api-reference/endpoint/send-template",
+                  "api-reference/endpoint/send-text",
+                  "api-reference/endpoint/send-image"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
