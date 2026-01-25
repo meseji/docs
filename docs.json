@@ -108,15 +108,7 @@
         ]
       },
       {
-        "tab": "FAQs",
-        "icon": "file-circle-question"
-      },
-      {
-        "tab": "Changelog",
-        "icon": "clock-rotate-left",
-        "pages": [
-          "changelog/page"
-        ]
+        "tab": "FAQs"
       },
       {
         "tab": "Integration",
@@ -125,6 +117,13 @@
           "integration/woo-commerce",
           "integration/shopify",
           "integration/introduction"
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "icon": "clock-rotate-left",
+        "pages": [
+          "changelog/page"
         ]
       }
     ]
