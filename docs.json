@@ -36,6 +36,22 @@
         "tab": "Guides",
         "groups": [
           {
+            "group": "Getting started",
+            "pages": [
+              "index",
+              "quickstart",
+              "development",
+              "guides/getting-started/pricing"
+            ]
+          },
+          {
+            "group": "Solutions",
+            "pages": [
+              "guides/getting-started/solutions/healthcare",
+              "guides/getting-started/e-commerce"
+            ]
+          },
+          {
             "group": "Test",
             "pages": [
               "guides/test/test",
@@ -43,22 +59,6 @@
                 "group": "Untitled Group",
                 "pages": []
               }
-            ]
-          },
-          {
-            "group": "Getting started",
-            "pages": [
-              {
-                "group": "Solutions",
-                "pages": [
-                  "guides/getting-started/solutions/healthcare",
-                  "guides/getting-started/e-commerce"
-                ]
-              },
-              "index",
-              "quickstart",
-              "development",
-              "guides/getting-started/pricing"
             ]
           },
           {
