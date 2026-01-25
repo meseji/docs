@@ -140,10 +140,6 @@
       }
     ]
   },
-  "logo": {
-    "light": "/images/Meseji Logo (1).png",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
     "links": [
       {
