@@ -40,7 +40,8 @@
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "development",
+              "guides/getting-started/pricing"
             ]
           },
           {
