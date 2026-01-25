@@ -113,9 +113,9 @@
       {
         "tab": "Integration",
         "pages": [
-          "integration/woo-commerce",
+          "integration/introduction",
           "integration/shopify",
-          "integration/introduction"
+          "integration/woo-commerce"
         ]
       },
       {
