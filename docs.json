@@ -123,7 +123,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://panel.meseji.app"
     }
   },
   "contextual": {
