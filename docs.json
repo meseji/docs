@@ -108,9 +108,6 @@
         ]
       },
       {
-        "tab": "FAQs"
-      },
-      {
         "tab": "Integration",
         "pages": [
           "integration/untitled-page",
@@ -118,6 +115,9 @@
           "integration/shopify",
           "integration/introduction"
         ]
+      },
+      {
+        "tab": "FAQs"
       },
       {
         "tab": "Changelog",
