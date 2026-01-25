@@ -58,16 +58,6 @@
             ]
           },
           {
-            "group": "Test",
-            "pages": [
-              "guides/test/test",
-              {
-                "group": "Untitled Group",
-                "pages": []
-              }
-            ]
-          },
-          {
             "group": "Customization",
             "pages": [
               "essentials/settings",
@@ -123,7 +113,6 @@
       {
         "tab": "Integration",
         "pages": [
-          "integration/untitled-page",
           "integration/woo-commerce",
           "integration/shopify",
           "integration/introduction"
