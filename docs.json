@@ -99,12 +99,22 @@
       },
       {
         "tab": "FAQs",
-        "icon": "circle-question"
+        "icon": "file-circle-question"
       },
       {
         "tab": "Changelog",
+        "icon": "clock-rotate-left",
         "pages": [
           "changelog/page"
+        ]
+      },
+      {
+        "tab": "Integration",
+        "pages": [
+          "integration/untitled-page",
+          "integration/woo-commerce",
+          "integration/shopify",
+          "integration/introduction"
         ]
       }
     ]
