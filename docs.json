@@ -27,7 +27,7 @@
         {
           "anchor": "Blog",
           "icon": "newspaper",
-          "href": "https://mintlify.com/blog"
+          "href": "https://meseji.app/blog"
         }
       ]
     },
@@ -71,6 +71,7 @@
       },
       {
         "tab": "API reference",
+        "openapi": "https://api.meseji.app/api/docs/json",
         "groups": [
           {
             "group": "Overview",
