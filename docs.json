@@ -98,6 +98,10 @@
         ]
       },
       {
+        "tab": "FAQs",
+        "icon": "circle-question"
+      },
+      {
         "tab": "Changelog",
         "pages": [
           "changelog/page"
