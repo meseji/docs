@@ -8,8 +8,8 @@
     "dark": "#15803D"
   },
   "favicon": {
-    "light": "/favicon.svg",
-    "dark": "/favicon.svg"
+    "light": "/images/favicon icon.png",
+    "dark": "/images/favicon icon.png"
   },
   "navigation": {
     "global": {
@@ -97,12 +97,15 @@
         ]
       },
       {
-        "tab": "Changelog"
+        "tab": "Changelog",
+        "pages": [
+          "changelog/page"
+        ]
       }
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
+    "light": "/images/Meseji Logo (1).png",
     "dark": "/logo/dark.svg"
   },
   "navbar": {
