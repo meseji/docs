@@ -1,0 +1,60 @@
+---
+title: 'Migrating from another BSP'
+description: 'How to port your WhatsApp Business number to Meseji without losing your data.'
+---
+
+## Migration Overview
+
+Migrating (or "porting") your number allows you to switch from providers like Twilio, MessageBird, or the Meta Cloud API to **Meseji** while keeping your verified status and phone number.
+
+
+
+---
+
+## Prerequisites
+
+Before you start, ensure you have completed these steps to prevent migration failure.
+
+<Warning>
+  **Disable Two-Factor Authentication (2FA):** You must turn off 2FA in your current BSP's dashboard. If Meta detects a PIN is active on the source account, the migration will be blocked.
+</Warning>
+
+* **Meta Business Manager Admin:** You must have admin access to the Facebook Business Account.
+* **Phone Access:** You must be able to receive an SMS or Voice call on the number you are migrating.
+* **Active Status:** The number must not be currently banned or flagged by Meta.
+
+---
+
+## The Migration Steps
+
+<Steps>
+  ### Step 1: Prep the Source Account
+  Log in to your current provider (e.g., Twilio, Gupshup) and:
+  1.  **Disable 2FA/Registration PIN.**
+  2.  Verify the number is "Connected."
+  3.  Keep the dashboard open; you may need it to check for incoming OTPs.
+
+  ### Step 2: Launch the Meseji Onboarding
+  In your [Meseji Dashboard](https://meseji.app/dashboard), click **Add Channel** and select **WhatsApp Business API**.
+  * Choose the **Migrate Existing Number** option.
+  * Click "Continue with Facebook" to open the Meta Embedded Signup.
+
+  ### Step 3: Select Business Assets
+  Inside the Meta popup:
+  1.  Select the **Meta Business Account** that currently owns the number.
+  2.  Select or create the **WhatsApp Business Account (WABA)** you want to use with Meseji.
+  3.  When prompted for the phone number, enter the number you are porting.
+
+  ### Step 4: Identity Verification
+  Meta will send a 6-digit code via SMS or Voice. 
+  * Select your preferred method.
+  * Enter the code in the popup.
+  * Once verified, the number will officially move to Meseji’s management.
+</Steps>
+
+---
+
+## Post-Migration Config
+
+Once the migration is complete, your old API credentials will no longer work. Update your application to point to Meseji.
+

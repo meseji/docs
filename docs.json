@@ -45,6 +45,12 @@
             ]
           },
           {
+            "group": "Waba Management",
+            "pages": [
+              "guides/bsp-migrating"
+            ]
+          },
+          {
             "group": "Solutions",
             "pages": [
               "guides/getting-started/solutions/healthcare",
