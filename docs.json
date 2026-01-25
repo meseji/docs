@@ -114,6 +114,10 @@
       {
         "label": "Support",
         "href": "mailto:contact@meseji.app"
+      },
+      {
+        "label": "Login",
+        "href": "https://panel.meseji.app/login"
       }
     ],
     "primary": {
