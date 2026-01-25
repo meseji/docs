@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "linden",
   "name": "Meseji Documentation",
   "colors": {
     "primary": "#16A34A",
@@ -109,7 +109,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:contact@meseji.app"
       }
     ],
     "primary": {
@@ -132,9 +132,17 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/gimiqco"
+      "x": "https://x.com/mesejiOfficial",
+      "linkedin": "https://www.linkedin.com/company/meseji",
+      "instagram": "https://www.instagram.com/meseji.app"
     }
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    }
+  },
+  "seo": {
+    "indexing": "navigable"
   }
 }
