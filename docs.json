@@ -68,27 +68,6 @@
             "pages": [
               "api-reference/introduction"
             ]
-          },
-          {
-            "group": "Templates",
-            "pages": [
-              "api-reference/endpoint/get-templates",
-              "api-reference/endpoint/get-template-variables"
-            ]
-          },
-          {
-            "group": "Messages",
-            "pages": [
-              "api-reference/endpoint/send-template",
-              "api-reference/endpoint/send-text",
-              "api-reference/endpoint/send-image"
-            ]
-          },
-          {
-            "group": "Temp",
-            "pages": [
-              "api-reference/developer-apis/list-all-whatsapp-templates"
-            ]
           }
         ]
       },
