@@ -53,8 +53,8 @@
           {
             "group": "Solutions",
             "pages": [
-              "guides/getting-started/solutions/healthcare",
-              "guides/getting-started/e-commerce"
+              "guides/solutions/e-commerce",
+              "guides/solutions/healthcare"
             ]
           }
         ]
