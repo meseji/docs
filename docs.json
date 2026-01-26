@@ -83,6 +83,12 @@
               "api-reference/endpoint/send-text",
               "api-reference/endpoint/send-image"
             ]
+          },
+          {
+            "group": "Temp",
+            "pages": [
+              "api-reference/developer-apis/list-all-whatsapp-templates"
+            ]
           }
         ]
       },
