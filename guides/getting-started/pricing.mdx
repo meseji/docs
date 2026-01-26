@@ -3,13 +3,14 @@ title: "Prices, Plans, and Payments"
 description: "Understand Meseji subscription tiers and Meta’s official per-message pricing."
 ---
 
-<Note type="success">
-  **Special Offer:** Get **3 Months FREE** on our Starter Plan! Start building your WhatsApp automation today with zero subscription costs for the first 90 days. [Claim Offer Now](https://panel.meseji.app/register?promo=3FREE)
-</Note>
+import SubscriptionOffer from '/snippets/subscription-offer.mdx';
+
+<SubscriptionOffer />
 
 ## Overview
 
 Billing at Meseji is straightforward and transparent. Your total cost consists of two parts:
+
 1. **Meseji Subscription:** A fixed monthly fee for our platform, tools, and API.
 2. **Meta Message Charges:** Official WhatsApp fees passed through at cost (no markup).
 
@@ -22,23 +23,24 @@ All plans come with a **7-day free trial** (no credit card required) and include
 <CardGroup cols={2}>
   <Card title="Starter" icon="seedling">
     **₹999 / month**
-    * Perfect for small businesses.
-    * Full access to Inbox & CRM.
-    * Basic automation flows.
-    * Meta API access included.
+
+    - Perfect for small businesses.
+    - Full access to Inbox & CRM.
+    - Basic automation flows.
+    - Meta API access included.
   </Card>
   <Card title="Growth" icon="rocket">
     **₹1,499 / month**
-    * For scaling teams.
-    * Advanced automation & APIs.
-    * Detailed analytics.
-    * Priority customer support.
+
+    - For scaling teams.
+    - Advanced automation & APIs.
+    - Detailed analytics.
+    - Priority customer support.
   </Card>
 </CardGroup>
 
 <Card title="Enterprise" icon="building">
-  **Custom Pricing**
-  For high-volume senders needing dedicated infrastructure, custom SLAs, and white-glove onboarding. [Contact Sales](mailto:sales@meseji.app).
+  **Custom Pricing** For high-volume senders needing dedicated infrastructure, custom SLAs, and white-glove onboarding. [Contact Sales](mailto:sales@meseji.app).
 </Card>
 
 ---
@@ -47,12 +49,12 @@ All plans come with a **7-day free trial** (no credit card required) and include
 
 Following Meta's **2025/2026 Billing Update**, charges have shifted toward a **per-message** model for business-initiated templates. Meseji passes these fees directly to you with **zero markup** on Starter and Growth plans.
 
-| Message Type | Price per Message | Best For |
-| :--- | :--- | :--- |
-| **Marketing** | **₹0.8631** | Promotions, newsletters, offers. |
-| **Utility** | **₹0.115** | Order updates, shipping alerts. |
-| **Authentication** | **₹0.115** | OTPs, login verifications. |
-| **Service** | **FREE** | Support chats within 24h window. |
+| Message Type       | Price per Message | Best For                         |
+| :----------------- | :---------------- | :------------------------------- |
+| **Marketing**      | **₹0.8631**       | Promotions, newsletters, offers. |
+| **Utility**        | **₹0.115**        | Order updates, shipping alerts.  |
+| **Authentication** | **₹0.115**        | OTPs, login verifications.       |
+| **Service**        | **FREE**          | Support chats within 24h window. |
 
 <Note>
   **The 24-Hour Service Window:** Any message you send as a reply to a customer within 24 hours of their last message is **completely free** of Meta charges.
@@ -66,13 +68,16 @@ Meseji simplifies your WhatsApp expenses into one dashboard.
 
 <Steps>
   ### Step 1: Subscription
+
   Your monthly plan (₹999 or ₹1,499) is billed at the start of your cycle. This keeps your dashboard, APIs, and team access active.
-  
+
   ### Step 2: Messaging Wallet
+
   To send billable messages (Marketing, Utility, or OTP), you top up your **Messaging Wallet** with credits.
-  
+
   ### Step 3: Real-Time Deduction
-  As messages are delivered, Meta's official rate is deducted from your wallet balance in real-time. You can view detailed logs in **Billing > Usage**.
+
+  As messages are delivered, Meta's official rate is deducted from your wallet balance in real-time. You can view detailed logs in **Billing \> Usage**.
 </Steps>
 
 <Tip>
@@ -83,12 +88,12 @@ Meseji simplifies your WhatsApp expenses into one dashboard.
 
 ## Comparison: Why Meseji?
 
-| Feature | Meseji.app | Meta Direct | Typical BSPs |
-| :--- | :--- | :--- | :--- |
-| **Platform Fee** | ₹999 - ₹1,499 | None | ₹2,500+ |
-| **Message Cost** | **Meta Rates (At Cost)** | Meta Rates | Meta + Markup |
-| **Tools Included** | CRM, Inbox, Flows | None (API only) | Varies |
-| **Setup Ease** | 5-Minute Signup | Highly Technical | Slow Onboarding |
+| Feature            | Meseji.app               | Meta Direct      | Typical BSPs    |
+| :----------------- | :----------------------- | :--------------- | :-------------- |
+| **Platform Fee**   | ₹999 - ₹1,499            | None             | ₹2,500+         |
+| **Message Cost**   | **Meta Rates (At Cost)** | Meta Rates       | Meta + Markup   |
+| **Tools Included** | CRM, Inbox, Flows        | None (API only)  | Varies          |
+| **Setup Ease**     | 5-Minute Signup          | Highly Technical | Slow Onboarding |
 
 ---
 
@@ -98,15 +103,12 @@ Meseji simplifies your WhatsApp expenses into one dashboard.
   <Accordion title="Is there a setup fee?">
     No. Meseji does not charge any setup or onboarding fees. You can start with our 7-day free trial immediately.
   </Accordion>
-
   <Accordion title="Can I use my own Meta Business Manager?">
     Yes. During onboarding, you will link your own Meta Business Account. This ensures you own your phone number and data.
   </Accordion>
-
   <Accordion title="What happens after my 1,000 free conversations?">
     Meta has updated its model in 2025/2026. While the "1,000 free conversations" benefit has evolved into the **Free Service Window**, you still get unlimited free replies to customer-initiated chats within 24 hours.
   </Accordion>
-
   <Accordion title="How do I cancel?">
     You can cancel your subscription at any time from the billing settings.
   </Accordion>
@@ -116,4 +118,4 @@ Meseji simplifies your WhatsApp expenses into one dashboard.
 
 ## Next Steps
 
-* [Start your 7-day Free Trial](https://panel.meseji.app/register)
+- [Start your 7-day Free Trial](https://panel.meseji.app/register)
