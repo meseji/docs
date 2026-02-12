@@ -34,7 +34,7 @@
     "tabs": [
       {
         "tab": "Guides",
-        "groups": [
+        "pages": [
           {
             "group": "Getting started",
             "pages": [
@@ -56,7 +56,8 @@
               "guides/solutions/e-commerce",
               "guides/solutions/healthcare"
             ]
-          }
+          },
+          "faqs"
         ]
       },
       {
@@ -78,9 +79,6 @@
           "integration/shopify",
           "integration/woo-commerce"
         ]
-      },
-      {
-        "tab": "FAQs"
       },
       {
         "tab": "Changelog",
