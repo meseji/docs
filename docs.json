@@ -138,5 +138,8 @@
   },
   "seo": {
     "indexing": "navigable"
+  },
+  "background": {
+    "decoration": "windows"
   }
 }
