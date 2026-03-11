@@ -146,8 +146,5 @@
     "light": "/images/meseji.png",
     "dark": "/images/meseji-full-lite.webp",
     "href": "/"
-  },
-  "banner": {
-    "content": "This is for Testting"
   }
 }
