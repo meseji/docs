@@ -145,6 +145,9 @@
   "logo": {
     "light": "/images/meseji.png",
     "dark": "/images/meseji-full-lite.webp",
-    "href": "https://ik.imagekit.io/g689orrur/Logo/meseji-full-lite.png"
+    "href": "/"
+  },
+  "banner": {
+    "content": "This is for Testting"
   }
 }
