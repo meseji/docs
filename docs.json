@@ -57,6 +57,13 @@
               "guides/solutions/healthcare"
             ]
           },
+          {
+            "group": "Developer",
+            "pages": [
+              "api",
+              "error"
+            ]
+          },
           "faqs"
         ]
       },
