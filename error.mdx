@@ -1,3 +1,53 @@
 ---
 title: "Error Code Reference"
 ---
+
+When managing a high volume of WhatsApp messages, encountering API errors is inevitable. Whether a customer's app is out of date, your marketing limits are maxed out, or a template formatting issue occurs, understanding these codes is the fastest way to get your campaigns back on track.
+
+Here is a complete cheat sheet of the most common Meta Cloud API error codes, what they mean, and exactly how to fix them.
+
+---
+
+# WhatsApp Business API Error Code Cheat Sheet
+
+## 1. Delivery & Recipient Errors
+
+These errors occur when there is an issue on the customer's end or when Meta blocks the delivery based on conversation rules.
+
+| **Error Code** | **Meaning**                      | **Why It Happens**                                                                                                                                                             | **How to Fix It**                                                                                                                                                          |
+| :------------- | :------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `131026`       | **Message Undeliverable**        | The recipient's phone number is not registered on WhatsApp, they are using a severely outdated version of the app, or they haven't accepted Meta's latest Terms of Service.    | You cannot force delivery. Verify the phone number is correct and active. If it is, you must contact the customer via SMS/Email and ask them to update their WhatsApp app. |
+| `131047`       | **Outside 24-Hour Window**       | You attempted to send a free-form (non-template) message, but more than 24 hours have passed since the customer last messaged you.                                             | The customer service window has closed. You must send an approved **Message Template** to re-open the conversation.                                                        |
+| `131049`       | **Per-User Marketing Limit Hit** | Meta blocked the delivery to "maintain healthy ecosystem engagement." The user has already received the maximum allowed number of marketing messages from businesses that day. | Do not resend immediately. Wait 24 hours before retrying the marketing campaign for this specific user.                                                                    |
+
+## 2. Throttling & Rate Limit Errors
+
+These errors trigger when you send messages too fast or when customers start flagging your messages.
+
+| **Error Code** | **Meaning**             | **Why It Happens**                                                                                                                                    | **How to Fix It**                                                                                                                                                                           |
+| :------------- | :---------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `130429`       | **Rate Limit Hit**      | You have exceeded the Cloud API's message throughput limit (the number of messages Meta allows you to send per second, typically starting at 80 mps). | Implement request throttling or exponential backoff in your code. Slow down your broadcast sending speed.                                                                                   |
+| `131048`       | **Spam Rate Limit Hit** | Meta has restricted your number because too many of your previous messages were blocked or reported as spam by customers.                             | Immediately pause your marketing broadcasts. Check your Quality Rating in the WhatsApp Manager and review your opt-in list to ensure you are only messaging users who want to be contacted. |
+| `131056`       | **Pair Rate Limit Hit** | You are sending too many messages from your business number to one specific customer's number in a very short period.                                 | Space out the messages. Wait a few minutes before trying to message that specific user again.                                                                                               |
+
+## 3. Template & Formatting Errors
+
+These errors happen when your payload doesn't match the approved template structure in Meta.
+
+| **Error Code**      | **Meaning**                       | **Why It Happens**                                                                                                                                                | **How to Fix It**                                                                                                             |
+| :------------------ | :-------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
+| `132000`            | **Template Parameter Mismatch**   | The number of variables (e.g., `{{1}}`, `{{2}}`) you are trying to send in your API request does not match the number of variables in the approved Meta template. | Check your API payload. If your template has three placeholders, you must pass exactly three variable values in your request. |
+| `132015` / `132016` | **Template is Paused / Disabled** | The template you are trying to use has been paused or permanently disabled by Meta due to a low quality rating (high customer block rate).                        | You cannot send this template. You must wait for the pause to lift or create a new, less spammy template and get it approved. |
+
+## 4. Account & Billing Errors
+
+These are critical errors that will pause all outbound API activity until resolved.
+
+| **Error Code** | **Meaning**                                  | **Why It Happens**                                                                                                                                               | **How to Fix It**                                                                                                                               |
+| :------------- | :------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `131042`       | **Business Eligibility Payment Issue**       | Your credit card failed, your credit line is over the limit, or you haven't added a payment method to your Meta Business Manager.                                | Go to your Meta Payment Settings and update your credit card or clear any outstanding dues. _(See our Billing Setup Guide for detailed steps)._ |
+| `368`          | **Temporarily Blocked for Policy Violation** | Your WhatsApp Business Account has been restricted for violating Meta's Commerce or Messaging policies (e.g., selling prohibited items like alcohol or weapons). | Check your Meta Account Quality dashboard to see the exact violation and submit an appeal.                                                      |
+
+---
+
+> **Developer Pro-Tip for Handling** `131026`**:** Because you still pay for API calls even if they fail, we highly recommend running a "WhatsApp Contact Check" API call to verify if a number is active on WhatsApp _before_ you add them to your bulk broadcast list.
