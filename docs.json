@@ -53,7 +53,8 @@
           {
             "group": "Key Resources",
             "pages": [
-              "meta-business-verification"
+              "meta-business-verification",
+              "meta-billing-for-whats-app-api"
             ]
           },
           {

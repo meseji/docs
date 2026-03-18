@@ -1,0 +1,76 @@
+---
+title: "Meta Billing for WhatsApp API"
+---
+
+Before diving into the technical setup, it is crucial to understand exactly how you are being billed. We believe in absolute transparency and a fair pricing structure that allows you to scale without being penalized.
+
+**Unlike many other providers, we do not charge a single cent of markup on your WhatsApp messages.** Here is our simple, two-part pricing model:
+
+1. **Platform Subscription:** You pay _us_ a flat, predictable subscription fee to use our software, shared inbox, chatbots, and automation tools.
+2. **WhatsApp Message Costs:** You pay _Meta_ directly for the actual WhatsApp messages you send, at their official base rate.
+
+Because you pay Meta directly for your messaging consumption, you must connect your credit card to Meta's system, not ours. Here is the complete guide to setting up your billing securely inside the Meta Business Manager.
+
+---
+
+# How to Add a Payment Method & Set Up Meta Billing
+
+## Why You Must Set Up Billing Immediately
+
+Even if you only plan to respond to customer inquiries (which are completely free), you still must have a payment method on file to send business-initiated templates (Marketing, Utility, Authentication).
+
+If you attempt to send bulk templates without a verified card on file, or if your card fails, Meta will instantly block your outbound messages and your API logs will show **Error Code 131042 (Business eligibility payment issue)**. Furthermore, Meta will not upgrade your messaging tier limits if your billing account is not in good standing.
+
+## Step-by-Step: Adding Your Payment Method
+
+You handle all WhatsApp API billing directly within Meta's ecosystem.
+
+### Step 1: Open Meta Business Settings
+
+1. Log in to your [Meta Business Settings](https://business.facebook.com/settings).
+2. Ensure you have selected the correct Business Portfolio from the top-left dropdown menu.
+
+### Step 2: Navigate to Payment Settings
+
+1. On the left-hand menu, scroll down to the **Accounts** section and click on **WhatsApp Accounts**.
+2. Select the specific WhatsApp account you want to set up billing for.
+3. Click on the **Settings** tab in the main window.
+4. Click **Payment Settings** (this will redirect you to the "Billing & Payments" portal).
+
+### Step 3: Add Your Business & Tax Information
+
+_Before_ you add a card, you must provide your legal tax details. **Meta strictly enforces this in 2026.**
+
+1. In the Billing portal, look for **Business Info** and click Edit.
+2. Enter your Legal Business Name, Address, and **Tax ID** (e.g., EIN in the US, VAT in Europe, or GST in India). _Note: If you are in a region like India and fail to provide a GST number, Meta may reject your payment methods entirely._
+
+### Step 4: Add Your Card
+
+1. Click the **Add Payment Method** button.
+2. **Set Your Region & Currency:** Select your Country and Currency carefully. _(Bonus: Meta now supports direct local billing in several global currencies, preventing you from paying foreign exchange bank markups!)_
+3. **Select Method:** Choose **Credit or Debit Card** and click Next.
+4. **Enter Details:** Input your card information. **Crucial:** Ensure the card has _International and Online Transactions_ explicitly enabled by your bank.
+5. **Verify:** You may be redirected to your bank's 3D-secure page to enter an OTP or approve a micro-charge (usually refunded immediately) to authenticate the card.
+
+---
+
+## How Meta's Direct Pricing Works in 2026
+
+If you used the WhatsApp API in the past, you might remember paying for "24-hour conversation sessions." As of the recent 2025/2026 updates, **Meta now charges strictly per delivered template message.**
+
+Because we don't add any markups, you only pay Meta's official rate for the following categories:
+
+- **Marketing Messages:** (Promotions, abandoned cart alerts, newsletters) These are your paid promotional messages. You are charged the base Meta rate for every marketing template delivered.
+- **Authentication Messages:** (OTPs, login codes) Charged per delivered message at a lower rate than marketing.
+- **Utility Messages:** (Order confirmations, shipping updates, payment receipts) These are significantly cheaper transactional messages.
+- **Service Messages (100% Free):** When a customer messages you first, a 24-hour Customer Service Window opens. During this window, you can send unlimited free-form text replies at **absolute zero cost**. _(Bonus: Any Utility templates you send while this 24-hour service window is open are also completely free!)_
+
+---
+
+## Troubleshooting Error 131042: "Business Eligibility Payment Issue"
+
+If your campaigns suddenly stop sending and your dashboard shows Error `131042`, Meta has restricted your account due to a billing snag. Here is how to fix it:
+
+- **Missing Tax Info:** Double-check Step 3 above. If your region requires a Tax ID and you left it blank, Meta will block your API access.
+- **Bank Blockades:** Banks frequently flag Meta's automated recurring charges as fraud. Call your bank to whitelist "Facebook/Meta Ads and WhatsApp Billing."
+- **Timezone/Currency Mismatch:** Ensure the timezone and currency in your Meta ad/billing account perfectly match your registered business address.
