@@ -1,0 +1,148 @@
+---
+title: "Meta Business Verification"
+---
+
+Getting your Meta Business Manager verified is one of the most critical steps when setting up the WhatsApp Business API (WABA). Whether you are using a Business Solution Provider (BSP) like **Meseji** the core verification process happens directly inside Meta.
+
+While the Meta dashboard can sometimes feel complicated, all these platforms fundamentally explain the same process. I have researched and synthesized the documentation from top BSPs to create this simplified, unified guide.
+
+Here is your complete, ready-to-use documentation page that explains the process in plain English.
+
+---
+
+# The Complete Guide to Meta Business Verification for WABA
+
+## What is Meta Business Verification?
+
+Meta Business Verification is a process where Meta (Facebook) confirms that your business is a genuine, legally registered entity.
+
+## Why Do You Need It?
+
+While you can start testing the WhatsApp Business API without verification (Sandbox mode/Unverified state), verifying your Meta Business ID unlocks the platform's full potential:
+
+- **Higher Messaging Limits:** Upgrade from the unverified limit of 250 messages per day to Tier 1 (1,000 messages/day), and eventually 10K, 100K, or unlimited.
+- **Official Green Tick:** You cannot apply for the Official WhatsApp Green Badge unless your Meta Business Manager is verified.
+- **Account Stability:** It prevents your WhatsApp API number from being restricted or blocked by Meta's spam filters.
+
+---
+
+## Types of Documents Required
+
+Meta needs to verify two distinct pieces of information. You will need to upload official documents for each category.
+
+_(Note: The name and address on these documents_ **_must perfectly match_**_ the details you enter in the Meta Business Manager)._
+
+### 1. Proof of Legal Business Name
+
+You must prove that your business legally exists under the name you provided.
+
+**Accepted Documents:**
+
+- Certificate of Incorporation / Registration Certificate
+- Business License (issued by a local/state/national government)
+- Tax Registration Certificate (e.g., GST Certificate in India, EIN letter in the US, VAT Certificate in the EU)
+
+### 2. Proof of Business Address and/or Phone Number
+
+You must prove that your business physically operates at the registered address and owns the phone number.
+
+**Accepted Documents:**
+
+- Utility Bill (Electricity, Water, or Landline Telephone bill) - _Must be less than 6 months old._
+- Bank Account Statement showing the business name and address.
+- Business License containing the registered address.
+
+> **Crucial Tip from Meseji :** If your Tax Certificate (like a GST certificate) contains both your Legal Business Name _and_ your Business Address, you can upload the exact same document for both steps!
+
+---
+
+## Step-by-Step Verification Guide
+
+Before you begin, ensure you have **Admin access** to your Meta Business Manager and have your legal documents saved as clear PDFs.
+
+### Step 1: Go to the Security Center
+
+1. Log in to your [Meta Business Settings](https://business.facebook.com/settings).
+2. In the left-hand menu, scroll down and click on **Security Center**.
+3. Under the "Business Verification" section, click the **Start Verification** button.
+
+   _(If the button is greyed out, see the troubleshooting section below)._
+
+### Step 2: Enter Your Business Details
+
+Fill in your Legal Business Name, Country, Address, Phone Number, and Website.
+
+**Important:** Do not use your "Brand Name" here unless it is legally registered. If your legal company is "Sunrise Tech Pvt Ltd" but your store is "Sunny Gadgets," you must use "Sunrise Tech Pvt Ltd".
+
+### Step 3: Select Your Business (If Prompted)
+
+Meta will search public records. If it finds a match for your business, select it. If not, click **"None of these match"** to proceed to manual document upload.
+
+### Step 4: Upload Legal Name Proof
+
+Upload the PDF of your Incorporation or Tax Registration certificate. Click Next.
+
+### Step 5: Upload Address/Phone Proof
+
+Upload your Utility Bill, Bank Statement, or re-upload your comprehensive Tax Certificate if it contains the address. Click Next.
+
+### Step 6: Choose a Contact Method for Final Verification
+
+Meta needs to send a verification code to confirm you represent the business. You can choose:
+
+- **Email:** The email domain _must_ match your website (e.g., `admin@yourbusiness.com`). Free emails like `@gmail.com` will be rejected.
+- **Phone Call / SMS:** Meta will send a code to the registered business phone number.
+- **Domain Verification:** If your website domain is already verified in Meta Business Manager, you can bypass the code entirely.
+
+### Step 7: Submit and Wait
+
+Enter the code (if applicable) and click Submit. Meta usually takes between **1 to 3 business days** to review your documents. You can track the status in the Security Center.
+
+---
+
+## Common Reasons for Rejection & How to Fix Them
+
+If your verification is rejected, do not panic. Meta relies heavily on automated bots to read these documents. Here is how to fix the most common errors:
+
+- **Mismatch in Details:** The name or address entered in Meta has a typo or doesn't exactly match the uploaded document (e.g., entering "St." instead of "Street"). **Fix:** Edit your Meta business info to match the document letter-for-letter.
+- **Website Lacks Legal Info:** Meta checks your website to ensure it belongs to the legal entity. **Fix:** Add your Legal Business Name to the footer of your website (e.g., _"© 2026 Legal Company Name Ltd"_).
+- **Start Verification Button is Greyed Out:** Meta sometimes hides the button until an app requests access. **Fix:** Go to your BSP (Meseji, etc.) and initiate the embedded signup process. This will trigger Meta to unlock the verification button in the Security Center.
+- **Unaccepted Document Type:** You uploaded an invoice, a self-written letter, or an ID card instead of a business document. **Fix:** Only upload government-issued business documents or official utility bills.
+
+## Verification Levels & Messaging Limits (The Tier System)
+
+Your Meta verification status directly dictates your **Messaging Limit**—which is the maximum number of unique customers your business can initiate a conversation with in a rolling 24-hour period.
+
+Here is exactly what you get at each stage of the verification journey:
+
+### 1. The Unverified State (Tier 0 / Trial Experience)
+
+You do not have to wait for verification to start testing the API. Once you connect a number, you enter a trial phase.
+
+- **Limit:** You can send business-initiated messages to a maximum of **250 unique customers** per 24 hours.
+- **Customer-Initiated Chats:** You can respond to an unlimited number of customers if _they_ message you first.
+- **Restrictions:** You cannot apply for the Official WhatsApp Green Tick, and you may face restrictions on sending certain Authentication (OTP) templates.
+- _Note: If you do not verify your business, your API access may eventually be paused._
+
+### 2. The Verified State (The Scaling Tiers)
+
+Once Meta approves your business documents, your account unlocks the ability to scale.
+
+- **Tier 1:** 2,000 unique customers per 24 hours. _(Every verified business jumps here)._
+- **Tier 2:** 10,000 unique customers per 24 hours.
+- **Tier 3:** 100,000 unique customers per 24 hours.
+- **Tier 4:** Unlimited unique customers per 24 hours.
+
+### How to Upgrade Your Tier (The 2026 Rules)
+
+You do not need to manually apply or pay to move from Tier 1 up to Tier 4. Meta's automated system upgrades your account based on your usage and quality.
+
+To trigger an automatic upgrade, you must meet two conditions:
+
+1. **The 50% Rule:** You must initiate conversations with at least half of your current daily limit within a 7-day window. _(For example: If you are on Tier 1 with a 2,000 limit, you must message at least 1,000 unique users within 7 days)._
+2. **Maintain Quality:** Your message Quality Rating (found in the Meta Insights dashboard) must remain "Medium" (Yellow) or "High" (Green) across all your templates. If users frequently block or report your messages, you will not be upgraded.
+
+**🚨 Important Meta Updates to Keep in Mind:**
+
+- **Portfolio Limits:** Meta now uses Portfolio-Based limits instead of per-number limits. If you have three different phone numbers connected to your verified Business Manager, they share the same capacity. If your main portfolio reaches Tier 3 (100K), _all_ new numbers you add to that business instantly inherit the 100K limit.
+- **Faster Upgrades (The 6-Hour Rule):** Meta now checks your account eligibility for a tier upgrade every **6 hours** (it used to take 24 to 48 hours), meaning you can scale your campaigns much faster than before

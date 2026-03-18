@@ -51,6 +51,12 @@
             ]
           },
           {
+            "group": "Key Resources",
+            "pages": [
+              "meta-business-verification"
+            ]
+          },
+          {
             "group": "Solutions",
             "pages": [
               "guides/solutions/e-commerce",
@@ -146,5 +152,8 @@
     "light": "/images/meseji.png",
     "dark": "/images/meseji-full-lite.webp",
     "href": "/"
+  },
+  "styling": {
+    "latex": true
   }
 }
