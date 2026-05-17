@@ -77,7 +77,6 @@
       },
       {
         "tab": "API reference",
-        "openapi": "https://api.meseji.app/api/docs/json",
         "groups": [
           {
             "group": "Overview",
@@ -136,7 +135,8 @@
     "socials": {
       "x": "https://x.com/mesejiOfficial",
       "linkedin": "https://www.linkedin.com/company/meseji",
-      "instagram": "https://www.instagram.com/meseji.app"
+      "instagram": "https://www.instagram.com/meseji.app",
+      "youtube": "https://www.youtube.com/@mesejiofficial"
     }
   },
   "api": {
