@@ -84,7 +84,8 @@
               "api-reference/introduction"
             ]
           }
-        ]
+        ],
+        "openapi": "https://api.meseji.app/api/docs/json"
       },
       {
         "tab": "Integration",
