@@ -1,0 +1,237 @@
+---
+title: "WhatsApp Business Account Restricted"
+description: "How to diagnose and fix the 'WhatsApp Business account is currently restricted' error during Meta Embedded Signup."
+---
+
+<Warning>
+  **Error encountered during Embedded Signup:**
+
+  > "You cannot proceed with this operation since your WhatsApp Business account is currently restricted."
+
+  This means Meta's backend eligibility systems have blocked your WhatsApp Business Account (WABA) from onboarding, API activation, migration, or Tech Provider linking.
+</Warning>
+
+## The "Verified But Restricted" Paradox
+
+Many businesses assume that a clean dashboard means onboarding will work:
+
+> _"My business is verified, my display name is approved, and my phone number is active — so onboarding should work."_
+
+This is the most common point of confusion. Meta operates **multiple independent compliance, fraud, and integrity systems** internally. Your account can appear fully healthy on public-facing dashboards while being quietly blocked from backend API onboarding actions.
+
+| System / Asset | Status |
+| --- | --- |
+| Meta Business Verification | ✅ Verified |
+| WhatsApp Display Name | ✅ Approved |
+| Phone Number Status | ✅ Active |
+| WhatsApp Business Account Visible | ✅ Yes |
+| Embedded Signup Eligibility | ❌ Restricted (Backend Block) |
+
+<Note>
+  This restriction is **not caused by** your website, frontend code, React implementation, or partner onboarding UI. It comes directly from Meta's backend eligibility database.
+</Note>
+
+---
+
+## Why This Happens
+
+<AccordionGroup>
+  <Accordion title="1. Existing BSP or Provider Connection">
+    If the phone number was previously connected to another WhatsApp Business Solution Provider (BSP) — such as 360dialog, WATI, Interakt, AiSensy, Respond.io, Gupshup, or Twilio — the old connection may not have been fully removed.
+
+    Meta's backend blocks new Tech Provider links if:
+
+    - The old connection was never fully removed
+    - A migration was left incomplete
+    - Meta still detects an active third-party provider relationship
+  </Accordion>
+
+  <Accordion title="2. Coexistence Cooldowns & Eligibility Issues">
+    Meta allows numbers to coexist on both the WhatsApp Business App and the Cloud API simultaneously. However, if the phone number:
+
+    - Is brand new, or
+    - Lacks sufficient active history on the WhatsApp Business App (Meta checks for a **minimum of 7 days** of genuine usage)
+
+    ...Meta's integrity filters flag the Embedded Signup attempt as high-risk and restrict the action.
+  </Accordion>
+
+  <Accordion title="3. Personal Admin Profile Restrictions">
+    The restriction may not be tied to the business asset at all — **it could be the user**.
+
+    If the personal Facebook Account of the admin completing Embedded Signup has any of the following, Meta will block the action:
+
+    - Active account flags or identity verification issues
+    - Active advertising bans or "Meta Technologies" management restrictions
+    - Any history of policy enforcement on the personal account
+  </Accordion>
+
+  <Accordion title="4. Past Policy or Template Violations">
+    Even if the account is currently marked "Active," historical negative markers leave a **risk trail** on Meta's backend:
+
+    - Past spikes in user spam reports
+    - Message templates repeatedly rejected by automated moderation
+    - Drops in phone number quality ratings
+    - Minor commerce policy violations
+
+    Old violations can affect future onboarding eligibility.
+  </Accordion>
+
+  <Accordion title="5. Unofficial API or Automation Software Usage">
+    If the phone number was ever used with:
+
+    - Unofficial, non-Meta web automation tools
+    - Modified WhatsApp APKs
+    - Desktop bulk-sending software
+    - Scraper scripts or tools violating Meta policy
+
+    Meta permanently logs that number's footprint in their backend risk engine. **This restriction rarely appears on standard account summary screens.**
+  </Accordion>
+
+  <Accordion title="6. Meta Integrity & Trust Restrictions (Silent Flags)">
+    Meta uses automated risk-scoring algorithms that can silently restrict:
+
+    - API onboarding
+    - Partner linking
+    - Tech Provider access
+    - Cloud API activation
+
+    Triggers can include sudden IP changes during setup, mismatched billing regions, or registering multiple WABAs in a short timeframe. These are **completely separate from standard business verification**.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Step-by-Step Diagnostics
+
+Before submitting any appeals, audit these three areas to locate where the block lives.
+
+<Steps>
+  <Step title="Open Meta Account Quality">
+    Go to the [Meta Account Quality Dashboard](https://business.facebook.com/accountquality).
+
+    Look for:
+
+    - Restricted or disabled WhatsApp assets
+    - Integrity violations or policy warnings
+    - Personal account limitations on the admin profile
+  </Step>
+  <Step title="Open WhatsApp Manager">
+    Navigate to your [WhatsApp Manager](https://business.facebook.com/wa/manage/home).
+
+    Check:
+
+    - Phone number status and quality rating
+    - Currently connected provider
+    - Pending migration issues or onboarding warnings
+  </Step>
+  <Step title="Check Meta Business Settings">
+    Open [Meta Business Settings](https://business.facebook.com/settings) → **Accounts → WhatsApp Accounts**.
+
+    Verify:
+
+    - The WABA belongs to the correct Business Portfolio (formerly Business Manager)
+    - No conflicting third-party partner/provider is still connected
+    - No ownership conflicts or duplicate WABA entries exist
+  </Step>
+</Steps>
+
+---
+
+## How to Fix This
+
+<Tabs>
+  <Tab title="Option 1 — Request Meta Review">
+    Open [Meta Business Support](https://www.facebook.com/business/help) and submit a ticket for **WhatsApp Business API Onboarding Eligibility**.
+
+    Use this exact message to bypass front-line bot responses:
+
+    ```text
+    Embedded Signup is failing with the error: "WhatsApp Business account is currently restricted"
+    (Error Code #2655121). The Meta Business Portfolio is verified and healthy, but internal
+    API onboarding and partner-linking is blocked. Please trigger a manual engineering review
+    of the WABA's backend integrity status.
+    ```
+
+    <Note>
+      Referencing **Error Code #2655121** explicitly in your ticket significantly improves routing to the correct support team.
+    </Note>
+  </Tab>
+  <Tab title="Option 2 — Remove Old BSP Connections">
+    If the number was previously connected to another provider:
+
+    1. Log into the previous provider's platform
+    2. Explicitly **disconnect or delete** the WhatsApp integration
+    3. Ensure the migration process is fully finalized
+    4. Remove any unused third-party integrations
+    5. **Wait 15–30 minutes** for Meta's cache to sync
+    6. Retry Embedded Signup
+  </Tab>
+  <Tab title="Option 3 — Manual Partner Mapping">
+    If Embedded Signup keeps failing but the WABA is visible in the client's Meta Business Portfolio, try a manual handshake:
+
+    1. Go to **Business Settings → Accounts → WhatsApp Accounts**
+    2. Select the target WABA
+    3. Click **Assign Partners**
+    4. Enter your Tech Provider's Meta Business ID
+    5. Grant **Manage WhatsApp Account** permissions manually
+  </Tab>
+  <Tab title="Option 4 — Use a Fresh Phone Number">
+    If Meta's risk engine has permanently flagged the number, the appeals process can take weeks.
+
+    The fastest resolution is often:
+
+    - Provision a **completely clean, unused phone number**
+    - Create a **fresh WABA** on that number
+    - Onboard again through Embedded Signup
+
+    <Warning>
+      Do not reuse the same number with a different SIM or carrier. The restriction is tied to the number itself, not the physical device.
+    </Warning>
+  </Tab>
+</Tabs>
+
+---
+
+## Partner Access: Important Note
+
+<Warning>
+  Adding a Tech Provider as a partner **does NOT automatically grant WhatsApp access**.
+</Warning>
+
+Customers must manually complete these steps:
+
+<Steps>
+  <Step title="Open WhatsApp Accounts">
+    In Meta Business Settings, navigate to **Accounts → WhatsApp Accounts**.
+  </Step>
+  <Step title="Select the WABA">
+    Click on the specific WhatsApp Business Account you want to link.
+  </Step>
+  <Step title="Assign Partner Access">
+    Click **Assign Partners**, enter the Tech Provider's Business ID, and enable **WhatsApp management permissions**.
+  </Step>
+</Steps>
+
+Without this manual step, WhatsApp assets will not display correctly during onboarding.
+
+---
+
+## Summary
+
+<CardGroup cols={2}>
+  <Card title="What this error means" icon="circle-xmark">
+    Your WABA is restricted at the **backend eligibility layer** — separate from standard verification and account health.
+  </Card>
+
+  <Card title="What this error does NOT mean" icon="circle-check">
+    It is **not** caused by your code, your UI, or visible account status. Public dashboards can show a healthy account that is still blocked internally.
+  </Card>
+
+  <Card title="Fastest fix" icon="bolt">
+    If Meta's review takes too long, provisioning a **fresh phone number \+ new WABA** is consistently the quickest path to resolution.
+  </Card>
+
+  <Card title="Common in the industry" icon="building">
+    This issue is very common among Tech Providers, BSPs, SaaS onboarding platforms, and WhatsApp API providers worldwide.
+  </Card>
+</CardGroup>
