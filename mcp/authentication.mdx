@@ -1,0 +1,72 @@
+---
+title: "Authentication & Multi-Tenancy"
+sidebarTitle: "Authentication"
+---
+
+Every MCP interaction is strictly scoped to the authenticated user and organization. Cross-organization access is blocked at the gateway level.
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="1. API Token (Recommended for IDEs & CLIs)">
+    Pass your workspace API token in the `Authorization` header:
+
+    ```http
+    Authorization: Bearer mk_live_abcdef1234567890
+    ```
+
+    - Tokens can be created, inspected, and revoked anytime from **Dashboard → Settings → API Tokens**.
+    - Token requests inherit the organization workspace and permissions assigned to the token creator.
+  </Tab>
+  <Tab title="2. OAuth 2.0 PKCE (For AI Web Clients)">
+    Meseji MCP implements RFC 7591 Dynamic Client Registration and RFC 9728 discovery:
+
+    - **Resource Discovery:** `GET /.well-known/oauth-protected-resource/api/mcp`
+    - **Authorization Server:** `GET /.well-known/oauth-authorization-server`
+    - **Authorization Code Flow with PKCE** (`S256`).
+
+    When an unauthenticated request hits `/api/mcp`, the server returns a `401 Unauthorized` challenge with the `WWW-Authenticate` header pointing to the metadata discovery endpoint.
+  </Tab>
+</Tabs>
+
+---
+
+## Managing and Revoking AI Connections
+
+Users can review connected AI clients and revoke active sessions directly:
+
+```http
+# List active AI client connections
+GET /api/mcp/connections
+
+# Disconnect / revoke specific AI client
+DELETE /api/mcp/connections/{clientId}
+```
+
+---
+
+## 3. SEO Keyword Strategy to Rank on WhatsApp Business API \+ MCP
+
+To capture top search rankings for WhatsApp Business API and MCP, leverage the following content and distribution strategy:
+
+### Primary Keywords & Search Intents
+
+| Keyword Target | Search Intent | Target URL / Asset |
+| :-- | :-- | :-- |
+| `whatsapp business api mcp server` | Developers seeking an official Model Context Protocol server for WhatsApp | `/docs/mcp/overview` |
+| `claude desktop whatsapp business api` | AI users wanting to send WhatsApp messages from Claude | `/docs/mcp/quickstart#claude-desktop` |
+| `cursor mcp whatsapp integration` | Developers seeking cursor IDE agent WhatsApp tools | `/docs/mcp/quickstart#cursor` |
+| `whatsapp ai agent tools mcp` | AI builders creating autonomous WhatsApp customer support/marketing agents | `/docs/mcp/tools` |
+| `model context protocol whatsapp api` | Technical audience exploring WhatsApp MCP implementations | `/docs/mcp/overview` |
+
+### Recommended Marketing & Registry Listings
+
+1. **Submit to MCP Server Directories:**
+   - [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)
+   - [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)
+   - [Smithery.ai](https://smithery.ai) & [PulseMCP](https://pulsemcp.com)
+2. **Publish a High-Intent Technical Blog Post:**
+   - Title: _"How to Control WhatsApp Business Cloud API with Claude & Cursor via Model Context Protocol (MCP)"_
+   - Target meta description: _"Integrate WhatsApp Business API with Claude Desktop and Cursor using Meseji's official MCP server. Send messages, draft campaigns, and manage templates with AI."_
+3. **Open-Source Quickstart Example:**
+   - Provide a sample repository (e.g. `meseji-mcp-starter`) demonstrating custom agent workflows using `@modelcontextprotocol/sdk`.

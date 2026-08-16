@@ -1,0 +1,178 @@
+---
+title: "WhatsApp MCP Tools Reference"
+sidebarTitle: "Tools"
+---
+
+Meseji exposes 5 specialized tools for WhatsApp communication, template orchestration, audience segmentation, and campaign creation.
+
+---
+
+### 1. `get_templates`
+
+List message templates in your workspace, along with their approval status, category, languages, and required variables.
+
+<ParamField query="status" type="string">
+  Filter by status: `APPROVED`, `PENDING`, `REJECTED`, `DRAFT`, `PAUSED`, `DISABLED`.
+</ParamField>
+
+<ParamField query="search" type="string">
+  Search template by name.
+</ParamField>
+
+<ParamField query="page" default="1" type="number">
+  Page number.
+</ParamField>
+
+<ParamField query="limit" default="20" type="number">
+  Number of records per page (max 50).
+</ParamField>
+
+<ResponseField name="templates" type="array">
+  List of template objects containing:
+
+  - `templateId`: Unique identifier
+  - `name`: Meta template name
+  - `language`: Locale code (e.g. `en_US`, `hi`)
+  - `category`: `MARKETING` or `UTILITY`
+  - `status`: Meta review status
+  - `body`: Raw message body
+  - `variables`: List of required variable slots (`header_media`, `header_1`, `body_1`, `button_0`) with their exact `passIn` argument.
+</ResponseField>
+
+---
+
+### 2. `create_template`
+
+Draft and submit a new text WhatsApp template to Meta for approval.
+
+<ParamField body="name" type="string" required>
+  Unique template name (lowercase letters, digits, and underscores only).
+</ParamField>
+
+<ParamField body="category" type="string" required>
+  `MARKETING` for promotions, `UTILITY` for transactional updates.
+</ParamField>
+
+<ParamField body="language" default="en_US" type="string">
+  Language code (e.g. `en_US`, `es`, `hi`).
+</ParamField>
+
+<ParamField body="body" type="string" required>
+  Message body text. Use sequential placeholders like `{{1}}`, `{{2}}`.
+</ParamField>
+
+<ParamField body="body_variable_examples" type="array of string">
+  Sample value for each body placeholder. Required by Meta for validation.
+</ParamField>
+
+<ParamField body="header_text" type="string">
+  Optional plain-text bold header (max 60 characters).
+</ParamField>
+
+<ParamField body="footer_text" type="string">
+  Optional footer text (max 60 characters).
+</ParamField>
+
+<ParamField body="buttons" type="array of objects">
+  Up to 3 buttons (`QUICK_REPLY`, `URL`, or `PHONE_NUMBER`). Dynamic URLs ending in `{{1}}` require `url_example`.
+</ParamField>
+
+---
+
+### 3. `send_template_message`
+
+Send a pre-approved WhatsApp template message to a recipient. Used for starting business-initiated conversations outside the 24-hour window.
+
+<ParamField body="to" type="string" required>
+  Recipient phone number in E.164 format without `+` (e.g. `919876543210`).
+</ParamField>
+
+<ParamField body="template_name" type="string" required>
+  Approved template name.
+</ParamField>
+
+<ParamField body="body_variables" type="array of string">
+  Ordered list of values replacing `{{1}}`, `{{2}}` in body.
+</ParamField>
+
+<ParamField body="header_variables" type="array of string">
+  Ordered list of values for text header placeholders.
+</ParamField>
+
+<ParamField body="header_media_url" type="string">
+  Publicly accessible HTTPS URL for image (`JPEG`/`PNG`), video (`MP4`), or document header.
+</ParamField>
+
+<ParamField body="variables" type="object">
+  Key-value map for special slots such as `button_0` (dynamic URL button parameter).
+</ParamField>
+
+<ParamField body="from" type="string">
+  Optional Sender Phone Number ID (defaults to workspace default).
+</ParamField>
+
+---
+
+### 4. `send_message`
+
+Send a direct plain-text message to a customer.
+
+<Note>
+  WhatsApp only allows free-form text messages inside an open **24-hour customer service window** (after the user messaged you). Outside this window, use `send_template_message`.
+</Note>
+
+<ParamField body="to" type="string" required>
+  Recipient phone number in E.164 format without `+`.
+</ParamField>
+
+<ParamField body="text" type="string" required>
+  Plain text message (max 4,096 characters).
+</ParamField>
+
+<ParamField body="from" type="string">
+  Optional Sender Phone Number ID.
+</ParamField>
+
+---
+
+### 5. `get_segments`
+
+Retrieve saved customer segments and current matching audience count.
+
+<ParamField query="search" type="string">
+  Search segment by name.
+</ParamField>
+
+<ParamField query="page" default="1" type="number">
+  Page number.
+</ParamField>
+
+<ParamField query="limit" default="20" type="number">
+  Limit per page.
+</ParamField>
+
+---
+
+### 6. `create_campaign`
+
+Create a broadcast campaign targeted to one or more saved segments.
+
+<Tip>
+  Campaigns created via MCP are created in **`DRAFT`** status. They are safely staged and will not send until scheduled or launched from the Meseji Dashboard.
+</Tip>
+
+<ParamField body="name" type="string" required>
+  Campaign name (max 150 characters).
+</ParamField>
+
+<ParamField body="template_id" type="string" required>
+  Approved template ID from `get_templates`.
+</ParamField>
+
+<ParamField body="segment_ids" type="array of string" required>
+  Array of segment IDs from `get_segments`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Optional internal notes/description.
+</ParamField>

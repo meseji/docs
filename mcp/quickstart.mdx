@@ -1,0 +1,87 @@
+---
+title: "Connecting AI Clients to Meseji MCP"
+sidebarTitle: "QuickStart "
+---
+
+Meseji provides a remote Streamable HTTP MCP server at: `https://api.meseji.app/api/mcp` (or your self-hosted API URL).
+
+<Steps>
+  <Step title="Generate a Meseji API Token">
+    1. Log in to your [Meseji Dashboard](https://panel.meseji.app).
+    2. Go to **Settings** → **API Tokens**.
+    3. Click **Create API Token**, select your workspace, and copy your token (`mk_...`).
+  </Step>
+  <Step title="Configure Your AI Client">
+    Choose your client below and add the configuration.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Claude Desktop">
+    Add the Meseji MCP configuration to your `claude_desktop_config.json`:
+
+    **File location:**
+
+    - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+    - **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+    ```json
+    {
+      "mcpServers": {
+        "meseji-whatsapp": {
+          "url": "https://api.meseji.app/api/mcp",
+          "headers": {
+            "Authorization": "Bearer YOUR_MESEJI_API_TOKEN"
+          }
+        }
+      }
+    }
+    ```
+
+    Restart Claude Desktop. You will see the hammer icon with Meseji's WhatsApp tools.
+  </Tab>
+  <Tab title="Cursor">
+    1. Open **Cursor Settings** (`Cmd + ,` or `Ctrl + ,`).
+    2. Navigate to **Features** → **MCP Servers**.
+    3. Click **\+ Add New MCP Server**.
+    4. Fill in the details:
+       - **Name:** `meseji-whatsapp`
+       - **Type:** `sse` / `http`
+       - **Server URL:** `https://api.meseji.app/api/mcp`
+       - **Headers:** `{"Authorization": "Bearer YOUR_MESEJI_API_TOKEN"}`
+  </Tab>
+  <Tab title="Claude Code (CLI)">
+    Add the MCP server directly via CLI:
+
+    ```bash
+    claude mcp add meseji-whatsapp https://api.meseji.app/api/mcp \
+      --header "Authorization: Bearer YOUR_MESEJI_API_TOKEN"
+    ```
+  </Tab>
+  <Tab title="Windsurf / VS Code / Antigravity">
+    In your workspace's MCP configuration (`mcp_config.json`):
+
+    ```json
+    {
+      "mcpServers": {
+        "meseji-whatsapp": {
+          "url": "https://api.meseji.app/api/mcp",
+          "headers": {
+            "Authorization": "Bearer YOUR_MESEJI_API_TOKEN"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+## Testing Your Connection
+
+Once connected, ask your AI assistant:
+
+> _"List all my approved WhatsApp templates in Meseji."_
+
+The model will invoke `get_templates` with `{ "status": "APPROVED" }` and return your available WhatsApp templates with placeholders.

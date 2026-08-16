@@ -77,6 +77,16 @@
         ]
       },
       {
+        "tab": "AI & MCP Server",
+        "icon": "whmcs",
+        "pages": [
+          "mcp/overview",
+          "mcp/quickstart",
+          "mcp/tools",
+          "mcp/authentication"
+        ]
+      },
+      {
         "tab": "API reference",
         "groups": [
           {
@@ -144,6 +154,9 @@
   "api": {
     "playground": {
       "display": "interactive"
+    },
+    "examples": {
+      "prefill": true
     }
   },
   "seo": {
@@ -159,5 +172,8 @@
   },
   "styling": {
     "latex": true
+  },
+  "markdown": {
+    "schema": true
   }
 }
