@@ -82,8 +82,7 @@
         "pages": [
           "mcp/overview",
           "mcp/quickstart",
-          "mcp/tools",
-          "mcp/authentication"
+          "mcp/tools"
         ]
       },
       {
@@ -97,7 +96,7 @@
           },
           {
             "group": "Developer API",
-            "openapi": "https://api.meseji.app/api/docs/json"
+            "pages": []
           }
         ],
         "icon": "rectangle-api"
