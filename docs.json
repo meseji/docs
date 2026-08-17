@@ -77,21 +77,21 @@
         ]
       },
       {
-        "tab": "MCP Server",
-        "icon": "whmcs",
-        "pages": [
-          "mcp/overview",
-          "mcp/quickstart",
-          "mcp/tools"
-        ]
-      },
-      {
         "tab": "API reference",
         "groups": [
           {
             "group": "Overview",
             "pages": [
               "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "MCP Server",
+            "icon": "whmcs",
+            "pages": [
+              "mcp/overview",
+              "mcp/quickstart",
+              "mcp/tools"
             ]
           },
           {
