@@ -94,6 +94,10 @@
             "pages": [
               "api-reference/introduction"
             ]
+          },
+          {
+            "group": "Developer API",
+            "openapi": "https://api.meseji.app/api/docs/json"
           }
         ],
         "icon": "rectangle-api"
